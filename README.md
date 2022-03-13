@@ -1,8 +1,12 @@
+## Run demo
+
+https://valrojas.github.io/react-pomodoro-timer/
+
 ## Run the project locally
 
 In the project directory, you can run:
 
-`git clone https://github.com/ValRojas/pomodoro-timer.git`\
+`git clone https://github.com/ValRojas/react-pomodoro-timer.git`\
 `cd pomodoro-timer`\
 `npm install (optional -timeout=60000)`\
 `npm start`

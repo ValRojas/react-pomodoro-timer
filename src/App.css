@@ -1,61 +1,95 @@
 body{
-  background-color: #90D26D;
+  background-color: #A45D5D;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  font-size: 23px;
-  margin-top: 25px;
 }
 button{
-  width: 40px;
-  height: 40px;
-  margin: 10px;
-  background-color: white;
-}
-#container{
-  display: flex;
-  flex-direction: row;
-  border-radius: 8px;
-  outline: 2px solid #342B2B;
-  border: 4px solid #62BD32;
-} /*contenedor break & session*/
-.text{
-  width: 200px;
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: center;
-}
-#button-cont{
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
+    background-color: transparent;
+    border:none;
+    border-radius: 5px;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
 }
 
-/*Contador*/
-
+/*container all elements*/
 .elements{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+  height: 650px;
 }
+
+/*Counter container*/
 #counter-display{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 50px 0px 18px;
-  width: 400px;
-  height: 270px;
-  border-radius: 8px;
-  outline: 2px solid #342B2B;
-  border: 4px solid #62BD32;
+  margin: 0px 0px 20px 0px;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  outline: 4px solid #342B2B;
 }
+
 #time-left{
-  font-size: 70px;
-  margin: 30px 0px;
+  font-size: 75px;
+}
+
+#timer-label{
+  font-size: 40px
+}
+
+
+/*elements below clock render*/
+#bottom-elements{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 50px;
+  width: 550px;
+}
+
+ /*container break & session*/
+#container{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  width: 275px;
+  height: 100px;
+}
+
+/*break length - session length*/
+.text{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+}
+
+.reset{
+  width: 275px;
+  height: 100px;
+  margin: 0px;
+  display: flex;
+  flex-direction:row;
+  align-items:flex-end;
+}
+
+#reset{
+  width:40px;
+  height:23px;
+  margin: 0px;
+}
+
+p{
+  font-size: 20px;
+  margin: 0px;
 }

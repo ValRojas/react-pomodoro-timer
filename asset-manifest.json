@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-pomodoro-timer/static/css/main.2bc789b1.css",
-    "main.js": "/react-pomodoro-timer/static/js/main.1120af2c.js",
+    "main.css": "/react-pomodoro-timer/static/css/main.481d080d.css",
+    "main.js": "/react-pomodoro-timer/static/js/main.e8c62731.js",
     "index.html": "/react-pomodoro-timer/index.html",
-    "main.2bc789b1.css.map": "/react-pomodoro-timer/static/css/main.2bc789b1.css.map",
-    "main.1120af2c.js.map": "/react-pomodoro-timer/static/js/main.1120af2c.js.map"
+    "main.481d080d.css.map": "/react-pomodoro-timer/static/css/main.481d080d.css.map",
+    "main.e8c62731.js.map": "/react-pomodoro-timer/static/js/main.e8c62731.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bc789b1.css",
-    "static/js/main.1120af2c.js"
+    "static/css/main.481d080d.css",
+    "static/js/main.e8c62731.js"
   ]
 }

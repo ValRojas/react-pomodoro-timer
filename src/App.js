@@ -27,53 +27,62 @@ class SessionLength extends React.Component{
 
    //breaks
   Increment(){
-    if(this.state.breaks === 60){
-      this.setState (state => ({
-        breaks: 60
-     }))
-    }else{
-      this.setState (state => ({
-        breaks: state.breaks + 1
-      }))
+    if(document.getElementById('start_stop').disabled !== true){
+      if(this.state.breaks === 60){
+        this.setState (state => ({
+          breaks: 60
+        }))
+      }else{
+        this.setState (state => ({
+          breaks: state.breaks + 1
+        }))
+      }
     }    
   }
   Decrement(){
-    if(this.state.breaks <= 1){
-      this.setState (state => ({
-        breaks: 1
-      }))
-    }else{
-      this.setState (state => ({
-        breaks: state.breaks - 1
-      }))
-    }
+    if(document.getElementById('start_stop').disabled !== true){
+      if(this.state.breaks <= 1){
+        this.setState (state => ({
+          breaks: 1
+        }))
+      }else{
+        this.setState (state => ({
+          breaks: state.breaks - 1
+        }))
+      }
+    }    
   }
 
   //sessions
   handleIncrement(){
-    if(this.state.session === 60){
-      this.setState (state => ({
-        session: 60,
-        minutes: 60
-     }))
-    }else{
-      this.setState (state => ({
-        session: state.session + 1,
-        minutes: state.minutes + 1
+    if(document.getElementById('start_stop').disabled !== true){
+      if(this.state.session === 60){
+        this.setState (state => ({
+          session: 60,
+          minutes: 60
       }))
+      }else{
+        this.setState (state => ({
+          session: state.session + 1,
+          minutes: state.minutes + 1
+        }))
+      }
     }
+    
   }
   handleDecrement(){
-    if(this.state.session <= 1){
-      this.setState (state => ({
-        session: 1,
-        minutes: 1
-      }))
-    }else{
-      this.setState (state => ({
-        session: state.session - 1,
-        minutes: state.minutes - 1
-      }))
+    if(document.getElementById('start_stop').disabled !== true){
+      if(this.state.session <= 1){
+        this.setState (state => ({
+          session: 1,
+          minutes: 1
+        }))
+      }else{
+        this.setState (state => ({
+          session: state.session - 1,
+          minutes: state.minutes - 1
+        }))
+      }
     }
   }
   
@@ -184,6 +193,7 @@ class SessionLength extends React.Component{
     
     return(
       <div class="elements">
+        <p id="pomodoro">pomodoro</p>
 
         <div id="counter-display">
           <div id="timer-label" style={this.state.alarmColor}>{this.state.sessionBreak}</div>
@@ -194,14 +204,10 @@ class SessionLength extends React.Component{
           
         </div>
 
-        <div>
+        <div id="start">
             <button id="start_stop" onClick={this.handleStart}>
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/></svg>
-            </button>
-
-            <button id="stop" onClick={this.handleStop}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/></svg>
-            </button>                       
+            </button>                                  
         </div>  
 
            
@@ -211,28 +217,34 @@ class SessionLength extends React.Component{
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-left-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/></svg>
             </button>
             <p><strong>Reset</strong></p>
+
+            <button id="stop" onClick={this.handleStop}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/></svg>
+            </button> 
+
+            <p><strong>Pause</strong></p>
           </div>
 
           <div id="container">
             <div class="text" id="break-label">
               <p id="displayed"><strong>Break Length</strong></p>
               <button id="break-decrement" onClick={this.Decrement}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16"><path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16"><path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/></svg>
               </button>
               <p id="break-length">{breakLength}</p>
               <button id="break-increment" onClick={this.Increment}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16"><path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16"><path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/></svg>
               </button>              
             </div>
 
             <div class="text" id="session-label">
               <p id="displayed"><strong>Session Length</strong></p>
               <button id="session-decrement" onClick={this.handleDecrement}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16"><path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16"><path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/></svg>
               </button>
               <p id="session-length">{sessionLength}</p>
               <button id="session-increment" onClick={this.handleIncrement}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16"><path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16"><path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/></svg>
               </button>
             </div>
           </div>
@@ -245,9 +257,7 @@ class SessionLength extends React.Component{
 }
 
 class App extends React.Component{
-  constructor(props){
-    super(props)
-  }
+  
   render(){
     return(
       <div>

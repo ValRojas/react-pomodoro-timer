@@ -195,11 +195,11 @@ class SessionLength extends React.Component{
         </div>
 
         <div>
-            <button id="start_stop" style={{fontSize: 18}} onClick={this.handleStart}>
+            <button id="start_stop" onClick={this.handleStart}>
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/></svg>
             </button>
 
-            <button id="stop" style={{fontSize: 18}} onClick={this.handleStop}>
+            <button id="stop" onClick={this.handleStop}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/></svg>
             </button>                       
         </div>  
@@ -207,7 +207,7 @@ class SessionLength extends React.Component{
            
         <div id="bottom-elements">
           <div class="reset">
-            <button id="reset" style={{fontSize: 18}} onClick={this.handleReset}>
+            <button id="reset" onClick={this.handleReset}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-left-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/></svg>
             </button>
             <p><strong>Reset</strong></p>

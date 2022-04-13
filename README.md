@@ -19,4 +19,5 @@ The page will reload when you make changes.
 ## Features
 
 -Audio Notification\
--Breaks & Sessions
+-Breaks & Sessions\
+-Light/Dark green mode

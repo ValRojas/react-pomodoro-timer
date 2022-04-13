@@ -12,7 +12,7 @@ class SessionLength extends React.Component{
       seconds: 0,
       breaker: 0,
       alarmColor: { color: "#FFFFFF" },
-      sessionBreak: "Session"
+      sessionBreak: "Session",
     }
     this.handleIncrement = this.handleIncrement.bind(this)
     this.handleDecrement = this.handleDecrement.bind(this)
@@ -23,6 +23,17 @@ class SessionLength extends React.Component{
     this.handleStop = this.handleStop.bind(this)
     this.handleReset = this.handleReset.bind(this)
     this.counter = this.counter.bind(this)
+    this.handleBackgroundChange = this.handleBackgroundChange.bind(this)
+  }
+
+  
+  //backgroundChanger
+  handleBackgroundChange(){
+    if(document.body.style.background == 'darkseagreen'){
+      document.body.style.background = "darkslategrey";
+    }else{
+      document.body.style.background = "darkseagreen";
+    }
   }
 
    //breaks
@@ -192,26 +203,30 @@ class SessionLength extends React.Component{
     let sessionLength = this.state.session <= 1? this.state.session = 1 : this.state.session > 60? this.state.session = 60: this.state.session;
     
     return(
-      <div class="elements">
-        <p id="pomodoro">pomodoro</p>
+      <div id="preview">
+        <button id="background" onClick={this.handleBackgroundChange}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-toggles" viewBox="0 0 16 16"><path d="M4.5 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm-7-14a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm2.45 0A3.49 3.49 0 0 1 8 3.5 3.49 3.49 0 0 1 6.95 6h4.55a2.5 2.5 0 0 0 0-5H6.95zM4.5 0h7a3.5 3.5 0 1 1 0 7h-7a3.5 3.5 0 1 1 0-7z"/></svg>
+        </button>
 
-        <div id="counter-display">
+        <div class="elements">
+          <p id="pomodoro">pomodoro</p>
+
+          <div id="counter-display">
           <div id="timer-label" style={this.state.alarmColor}>{this.state.sessionBreak}</div>
           <div id="time-left" style={this.state.alarmColor}>
             <audio preload="auto" ref={(audio) => {this.audioBeep = audio;}} src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" id="beep"/>
             {this.clockRender()}
           </div>
           
-        </div>
+          </div>
 
-        <div id="start">
+          <div id="start">
             <button id="start_stop" onClick={this.handleStart}>
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/></svg>
             </button>                                  
-        </div>  
-
-           
-        <div id="bottom-elements">
+          </div>
+                     
+          <div id="bottom-elements">
           <div class="reset">
             <button id="reset" onClick={this.handleReset}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-left-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/></svg>
@@ -249,9 +264,12 @@ class SessionLength extends React.Component{
             </div>
           </div>
 
-        </div>
+          </div>
 
-      </div>
+        </div>
+      </div>  
+      
+      
     )
   }
 }
